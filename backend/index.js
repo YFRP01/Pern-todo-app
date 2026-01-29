@@ -1,20 +1,19 @@
-import express from "express";
-import cors from "cors";
-import todoRoutes from "./routes/todos.js";
-import dotenv from "dotenv";
+import express from 'express'
+import cors from 'cors'
+import todoRoutes from "./routes/todo.js"
+import dotenv from 'dotenv'
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const PORT= process.env.PORT || 5000;
 
 const app = express();
 
-app.use(cors({
-  origin: "https://frontend-6j0r.onrender.com"
-}));
+app.use(cors());
 app.use(express.json());
 
-app.use("/todos", todoRoutes);
+app.use("/todos", todoRoutes)
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, ()=>{
+    console.log(`Server is listening at port ${PORT}`);
+    
+})
