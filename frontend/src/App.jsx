@@ -109,7 +109,8 @@ function App() {
             )} placeholder="What needs to be done?" required />
             <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium">ADD Task</button>
           </form>
-          <div>
+          <div className="max-h-100 overflow-y-auto">
+            <div>Found {todos.length} existing todos</div>
             {loading ? (
               <p className="text-gray-600">Loading Tasks ...</p>
             )
@@ -134,7 +135,7 @@ function App() {
                     ) : (
                       <div className="flex items-center justify-between">
                         <div className="overflow-hidden flex items-center gap-x-4 w-full">
-                          <button onClick={()=>(toggleCompleted(todo.todo_id))} className={`w-6 h-6 flex-shrink-0 border-2 rounded-full flex items-center justify-center 
+                          <button onClick={()=>(toggleCompleted(todo.todo_id))} className={`w-6 h-6 shrink-0 border-2 rounded-full flex items-center justify-center 
                             ${todo.completed ? 'bg-green-500 border-green-500 text-white': 'bg-gray-300 hover:border-blue-400'}`}>
                               {todo.completed && <MdOutlineDone size='16' />}
                           </button>
